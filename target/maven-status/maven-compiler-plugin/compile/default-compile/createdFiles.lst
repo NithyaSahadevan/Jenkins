@@ -1,5 +1,7 @@
+com\training\Jenkins\SeleniumJenkins\App.class
 com\training\Jenkins\SeleniumJenkins\AppTest.class
 com\training\selenium\HomePage.class
 com\training\selenium\Interactions.class
-com\training\Jenkins\SeleniumJenkins\App.class
+com\training\selenium\ReusableMethodsSalesForce.class
+com\training\selenium\TC2Login.class
 com\training\selenium\ReusableMethods.class

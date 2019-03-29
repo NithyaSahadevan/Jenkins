@@ -9,29 +9,31 @@ public class Interactions extends ReusableMethods{
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
+		
+		startTest();
 
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-		WebDriver driver;
-		driver=new FirefoxDriver();
 		
-		driver.get("https://selenium-prd.firebaseapp.com/");
+		InitializeDriver();
 		
-		System.out.println("Application Launched Successfully");
+		Launch("https://selenium-prd.firebaseapp.com/","Login");
+		
 		Thread.sleep(4000);
 		
 		//Enter the UserName
 		WebElement emailUserName=driver.findElement(By.id("email_field"));
 		emailUserName.clear();
-		enterText(emailUserName,"admin123@gmail.com");
+		enterText(emailUserName,"admin123@gmail.com","Email");
 				
 		//Enter the Password
 		WebElement password=driver.findElement(By.id("password_field"));
 		password.clear();
-		enterText( password,"admin123");
+		enterText( password,"admin123","Password");
 		
 		//Click on Login button		
 		WebElement loginButton=driver.findElement(By.xpath("/html/body/div[1]/button"));
-		clickObject(loginButton);
+		clickObject(loginButton,"Login");
+		
+		endTest();
 	}
 
 }
