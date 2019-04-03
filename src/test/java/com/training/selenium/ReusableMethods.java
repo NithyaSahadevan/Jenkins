@@ -40,7 +40,7 @@ public class ReusableMethods {
 	{ 
 		driver.get(url);
 		driver.manage().window().maximize();
-		logger = report.startTest("Login to Sales Force"+Msg);
+		logger = report.startTest("Login to Firebaseapp "+Msg);
 		Thread.sleep(2000);
 		System.out.println("Application Launched Successfully");
 		logger.log(LogStatus.PASS,"Application Launched Successfully");
@@ -71,7 +71,7 @@ public class ReusableMethods {
 	{
 		if(Obj.isDisplayed())
 		{
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			Obj.sendKeys(textVal);
 			System.out.println("Entering into the "+MsgTxtBox+" text field is success");
 			logger.log(LogStatus.PASS,("Entering into the "+MsgTxtBox+" text field is success"));
@@ -97,7 +97,7 @@ public class ReusableMethods {
 		Thread.sleep(1000);
 		Obj.click();
 		System.out.println(eleBtn+ " Button is clicked");
-		logger.log(LogStatus.FAIL,(eleBtn+ " Button is clicked"));
+		logger.log(LogStatus.PASS,(eleBtn+ " Button is clicked"));
 		}
 		else
 		{
@@ -105,6 +105,57 @@ public class ReusableMethods {
 			logger.log(LogStatus.FAIL,(eleBtn+ " Button doesn't exist please check"));
 		}
 	}
+	
+	/*
+	 * Name of the method : selectCheckBox
+	 * Brief Description  : Select the remember username checkbox
+	 * Arguments		  : WebElement and the string to pass to the TextBox 
+	 * Created By		  : Automation Team
+	 * Created Date       : 03/21/2019
+	 * Last Modified	  : 03/21/2019
+	 */
+	public static void selectCheckBox(WebElement obj, String eleChkBox)
+	{
+		if(obj == null)
+			return;
+		if (obj.isDisplayed()) {
+			if(!obj.isSelected())
+			{
+				obj.click();
+			}
+			System.out.println("Pass: checkbox " + eleChkBox + " CheckBox is selected");
+			logger.log(LogStatus.PASS,(eleChkBox+ " checkbox is clicked"));
+		} else {
+			System.out.println("Fail: " + eleChkBox + " CheckBox could not be found");
+			logger.log(LogStatus.FAIL,(eleChkBox+ " CheckBox could not be found"));
+		}
+	}
+	
+	/*
+	 * Name of the method : selectCheckBox
+	 * Brief Description  : Select the remember username checkbox
+	 * Arguments		  : WebElement and the string to pass to the TextBox 
+	 * Created By		  : Automation Team
+	 * Created Date       : 03/21/2019
+	 * Last Modified	  : 03/21/2019
+	 */
+	public static void selectDropDown(WebElement obj,String eleDropDown)
+	{
+		if(obj == null)
+			return;
+		if (obj.isDisplayed()) {
+			if(!obj.isSelected())
+			{
+				obj.click();
+			}
+			System.out.println("Pass: DropDown " + eleDropDown + " is selected");
+			logger.log(LogStatus.PASS,(eleDropDown+ " DropDown is clicked"));
+		} else {
+			System.out.println("Fail: " + eleDropDown + " DropDown could not be found");
+			logger.log(LogStatus.FAIL,(eleDropDown+ " DropDown could not be found"));
+		}
+	}
+	
 	
 	/*
 	 * Name of the method : endTest
